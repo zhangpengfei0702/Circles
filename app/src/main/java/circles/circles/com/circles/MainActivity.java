@@ -29,6 +29,7 @@ public class MainActivity extends BaseActivity<MainPresenter.MainUI, MainPresent
         getUI().gettvmvp().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //在这里将业务逻辑 和网络请求放在了presenter中
                 getPresenter().tvedit();
 
             }
@@ -44,5 +45,11 @@ public class MainActivity extends BaseActivity<MainPresenter.MainUI, MainPresent
     @Override
     public TextView gettvmvp() {
         return getUI().finder().find(R.id.tv_mvp);
+    }
+
+    @Override
+    public void setinfo(String userinfo) {
+        //将网络的数据 进行页面布局的更新
+        getUI().finder().textView(R.id.tv_userinfo).setText(userinfo);
     }
 }
